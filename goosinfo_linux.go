@@ -5,7 +5,7 @@ import (
     "syscall"
 )
 
-func UnameCharsToString(ca [65]int8) string {
+func uname_chars_to_string(ca [65]int8) string {
     s := make([]byte, len(ca))
     var lens int
     for ; lens < len(ca); lens++ {
@@ -25,5 +25,5 @@ func GetOSVersion() (string, error) {
     if err != nil {
         return "", fmt.Errorf("Could not get Linux version")
     }
-    return UnameCharsToString(uts.Release), nil
+    return uname_chars_to_string(uts.Release), nil
 }
